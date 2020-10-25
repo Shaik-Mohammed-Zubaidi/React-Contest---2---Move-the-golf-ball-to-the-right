@@ -29,7 +29,7 @@ class App extends Component {
   handleright(event) {
     let prevPos = this.state.ballPosition.left.slice(0, -2);
     let curPos = Number(prevPos) + 5;
-    if (event.key === "ArrowRight" || event.keyCode === 39) {
+    if (event.keyCode === 39) {
       this.setState({
         ballPosition: { left: `${curPos}px` }
       });
@@ -38,7 +38,7 @@ class App extends Component {
 
   //bind ArrowRight keydown event
   componentDidMount() {
-    document.body.addEventListener("keydown", this.handleright);
+    document.addEventListener("keydown", this.handleright,false);
   }
 
   render() {
